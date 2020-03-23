@@ -1,0 +1,24 @@
+<div class="space">
+  <div class="container">
+    <h1>Lecciones</h1>
+    <hr>
+    <br>
+   <% @lessons.each do |lesson| %>
+   <%= link_to lesson do %>
+    <div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media0.giphy.com/media/kdRDJbiSzih7G/source.gif)">
+      <br>
+      <h1><%= lesson.title %></h1>
+      <h5>·Web Development</h5>
+      <h6><%= lesson.intro %></h6>
+      <br>
+    </div>
+    <% end %>
+    <td><%= link_to 'Show', lesson %></td>
+      <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
+      <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+    <br>
+     <%= link_to 'New Lesson', new_lesson_path %>
+  </div>
+</div>
+

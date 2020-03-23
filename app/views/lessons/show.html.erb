@@ -1,0 +1,14 @@
+<div class="banner2" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.7) 50%), url('https://media0.giphy.com/media/kdRDJbiSzih7G/source.gif');">
+  <div>
+    <div class="hidden-xs hidden-sm">
+      <h3><%= @lesson.title %></h3>
+      <p>By: Voidcamp</p>
+    </div>
+  </div>
+</div>
+<div class="container" style="padding-top: 150px;">
+  <%= raw @lesson.content %>
+</div>
+
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>
