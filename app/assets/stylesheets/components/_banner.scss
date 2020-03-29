@@ -7,11 +7,11 @@
   align-items: center;
   justify-content: center;
   position:relative;
-   background-attachment: fixed;
+  background-position: center;
 }
 
 .banner img{
-  height: 200px;
+  height: 300px;
 }
 
 .small img{
@@ -26,17 +26,17 @@
 .banner2 {
   color: white;
   text-align: center;
-  height: 40vh;
+  height: 50vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
   position:relative;
-   background-attachment: fixed;
+  background-position: center;
 }
 
-.banner2 img{
-  height: 100px;
+.banner img{
+  height: 300px;
 }
 
 .small img{

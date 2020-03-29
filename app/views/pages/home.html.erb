@@ -3,10 +3,10 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-6" >
-        <h3>APRENDE · COMPARTE · DESAROLLA</h3>
+        <h3>APRENDE · DESARROLLA · COMPARTE</h3>
         <br>
-        <p>Void Camp es un proyecto social que tiene como objetivo formar una comunidad de emprendimiento con la visión de ofrecer educación gratuita y disponible para todo aquel que desee aprender y desenvolver su potencia ... <a href="/voidcamp" style="color: black; font-weight: bold;">LEER MAS</a> </p>
-        <button class="button link" > <a href="/lessons">Descrubre</a></button>
+        <p>Void Camp es un proyecto social que tiene como objetivo formar una comunidad de emprendimiento con la visión de ofrecer educación gratuita y disponible para todo aquel que desee aprender y desenvolver su potencia ... <a href="/voidcamp" style="color: black; font-weight: lighter;">LEER MAS</a> </p><br>
+        <a href="/themes"> <h1 class="button " >Descrubre</h1></a>
       </div>
       <div class="col-sm-12 col-md-6 text-center">
         <div class="" style="padding-top: 30px;">
@@ -16,76 +16,76 @@
     </div>
   </div>
 </div>
-<div class="space">
-  <div class="container">
-    <h5>Lecciones</h5>
-    <hr>
-    <br>
-
-    <div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media0.giphy.com/media/kdRDJbiSzih7G/source.gif)">
-      <br>
-      <h1>Ruby on Rails</h1>
-      <h5>·Web Development</h5>
-      <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h6>
-      <br>
-    </div>
-    <br>
-  </div>
-</div>
-<div class="" style="padding-top: 50px; padding-bottom:100px;">
-  <div class="container">
-    <h5>Articles</h5>
-    <hr>
-    <br>
-    <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="https://media0.giphy.com/media/kdRDJbiSzih7G/source.gif" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
-  </div>
-</div>
 <br>
-<div style="padding-top: 80px; padding-bottom: 80px; background-color: black;">
+<div class="space" style="padding-bottom: 150px;">
+  <div class="container">
+    <h2>Ultima Leccion</h2>
+    <hr>
+    <br>
+    <%= link_to subject_path(@subject) do %>
+    <div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @subject.photo.key%>')">
+      <br>
+      <div style=""></div>
+      <h5>· <%= @subject.theme.title%></h5>
+      <h1><%= @subject.title%></h1>
+      <h6><%= @subject.info %></h6>
+      <br>
+    </div>
+    <% end %>
+    <br>
+    <br>
+  </div>
+</div>
+<div style="padding-top: 100px; padding-bottom: 100px; background-color: black;">
   <div class="container">
     <div class="text-center">
       <hr style="background-color: white;">
-      <br>
       <iframe width="100%" height="570" src="https://www.youtube.com/embed/NGXp6_-nc4s?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <br>
       <hr style="background-color: white;">
     </div>
-    <br>
   </div>
 </div>
-<br>
-<br>
-<div style="padding-top:100px;" >
- <div class="container text-center">
-  <h3>VoidCamp no seria posible sin la ayuda y <br>  generosidad de amigos como ... </h3>
-  <br>
+<div class="container space" style="">
+  <h2 class="">Lecturas</h2>
+  <hr>
   <br>
   <div class="row">
-    <div class="col-sm-12 col-md-4"> <img src="https://cdn.worldvectorlogo.com/logos/general-electric-black.svg" alt="" height="150px"></div>
-    <div class="col-sm-12 col-md-4"> <img src="https://www.whiteclaw.com/img/assets/logo-blk.png" alt="" height="150px"></div>
-    <div class="col-sm-12 col-md-4"> <img src="https://image.flaticon.com/icons/png/512/44/44646.png" alt="" height="150px"></div>
+    <div class="card-deck">
+      <% @articles.each do |article| %>
+      <div class="col-xs-12 col-md-4">
+        <%= link_to article_path(article) do %>
+        <div class="card">
+          <img src="<%= cl_image_path article.photo.key%>" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title"><%= article.title%></h5>
+            <p class="card-text"><%= article.intro%></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><%= article.created_at %></small>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <div class="suscribe" style="padding-top: 100px;">
-    <h3>Get more information about voidcamp</h3>
-    <p>If you'd like to find out more about pi-top, fill in your details below and one of our team in your region will get right back to you.</p>
-    <button class="buttonv2">Unete a nuestra comunidad</button>
+  <br>
+  <br>
+  <div class="text-center">
+      <a href="/articles"><p class="btn btn-dark"> Todos </p></a>
   </div>
   <br>
 </div>
+<div>
+ <div class="container">
+  <div class="space" style="">
+  <br>
+    <h2 class="text-center">Se parte de Void Camp</h2>
+    <p class="text-center">If you'd like to find out more about pi-top, fill in your details below and one of our team in your region will get right back to you.</p>
+    <div class="text-center">
+   <a href="/community"> <button class="buttonv2 ">Unete a nuestra comunidad</button> </a>
+    </div>
+  </div>
 </div>
-<br>
-<br>
+

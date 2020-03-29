@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Intro:</strong>
-  <%= @article.intro %>
-</p>
-
-<p>
-  <strong>Content:</strong>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.7) 50%), url('<%= cl_image_path @article.photo.key%>');">
+  <div>
+    <div class="hidden-xs hidden-sm">
+      <h5>VOIDCAMP</h5>
+      <p>Presenta:</p>
+      <h3><%= @article.title %></h3>
+      <i class="fa fa-angle-double-down symbols" aria-hidden="true"></i>
+    </div>
+  </div>
+</div>
+<div class="container" style="padding-top: 50px;">
+  <hr>
   <%= raw @article.content %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+  <br>
+  <br>
+  <p>Publicado en</p>
+  <p> <%= @article.created_at %> </p>
+  <hr>
+   <div class="text-center">
+    <h5>Aprende mas con <strong><a href="/articles">VoidCamp</a></strong></h5>
+    <%= render 'shared/slack' %>
+  </div>
+</div>

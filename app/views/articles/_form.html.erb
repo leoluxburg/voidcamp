@@ -7,9 +7,11 @@
     <%= f.input :title %>
     <%= f.input :intro %>
     <%= f.text_area :content,  class: "tinymce" %>
+    <br>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-dark" %>
   </div>
 <% end %>

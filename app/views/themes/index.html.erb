@@ -1,0 +1,54 @@
+
+<div class="container space" style="">
+  <h2>Temas</h2>
+  <hr>
+  <br>
+  <% @themes.each do |theme| %>
+  <div type="button" data-toggle="collapse" data-target="#demo<%= theme.id%>">
+    <h3><%= theme.title %> <i class="fas fa-caret-down"></i></h3>
+  </div>
+  <br>
+  <% theme.subjects.each do |subject| %>
+  <div id="demo<%= theme.id%>" class="collapse">
+    <%= link_to subject_path(subject) do %>
+    <div class="card-category text-center " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path subject.photo.key%>')">
+      <br>
+      <div style=""></div>
+      <h5>· <%= subject.theme.title%></h5>
+      <h1><%= subject.title%></h1>
+      <h6><%= subject.info %></h6>
+      <br>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+  <% end %>
+  <br>
+  <div type="button" data-toggle="collapse" data-target="#demo3">
+    <h3>Diseño <i class="fas fa-caret-down"></i></h3>
+  </div>
+  <br>
+  <div id="demo3" class="collapse">
+    <h2 class="text-center">Comming soon</h2>
+  </div>
+  <br>
+    <div type="button" data-toggle="collapse" data-target="#demo2">
+    <h3>Musica <i class="fas fa-caret-down"></i></h3>
+  </div>
+  <br>
+  <div id="demo2" class="collapse">
+    <h2 class="text-center">Comming soon</h2>
+  </div>
+  <br>
+  <div type="button" data-toggle="collapse" data-target="#demo4">
+    <h3>Fotografia y Video <i class="fas fa-caret-down"></i></h3>
+  </div>
+  <br>
+  <div id="demo4" class="collapse">
+    <h2 class="text-center">Comming soon</h2>
+  </div>
+  <br>
+</div>
+
+
+
