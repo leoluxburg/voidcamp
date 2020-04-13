@@ -1,10 +1,11 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :new, :show, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   # GET /lessons
   # GET /lessons.json
   def index
     @lessons = Lesson.all
+    @subjects = Subject.all
   end
 
   # GET /lessons/1

@@ -1,17 +1,38 @@
-<div class="container" style="padding-top: 150px;">
-
-<h1><%= @subject.title %></h1>
+<div class="container space">
+<h2><%= @subject.title %></h2>
 <hr>
-<br>
-  <% @subject.lessons.each do |lesson| %>
-  <%= link_to lesson_path(lesson) do %>
-  <div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path lesson.photo.key%>')">
-    <br>
-    <div style=""></div>
-    <h1><%= lesson.title%></h1>
-    <h6><%= lesson.intro %></h6>
-    <br>
+<div class="dropdown">
+  <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+   Filtrar
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="/lessons">Todas</a>
+    <% @subjects.each do |subject| %>
+    <%= link_to subject_path(subject) do %>
+    <p class="dropdown-item" href="/lessons"><%= subject.title %></p>
+    <% end %>
+    <% end %>
   </div>
-  <% end %>
-  <% end %>
+</div>
+<br>
+  <div class="row">
+    <div class="card-deck">
+      <% @subject.lessons.each do |lesson| %>
+      <div class="col-xs-12 col-md-4">
+        <%= link_to lesson_path(lesson) do %>
+        <div class="card">
+          <img src="<%= cl_image_path lesson.photo.key%>" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title"><%= lesson.title%></h5>
+            <p class="card-text"><%= lesson.intro%></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><%= lesson.created_at %></small>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

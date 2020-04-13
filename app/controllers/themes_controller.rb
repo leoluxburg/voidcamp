@@ -1,5 +1,5 @@
 class ThemesController < ApplicationController
-  before_action :set_theme, only: [:show, :edit, :update, :destroy]
+  before_action :set_theme, only: [:show, :edit, :update, :destroy, :index]
 
   # GET /themes
   # GET /themes.json

@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   # GET /subjects
   # GET /subjects.json
@@ -10,6 +11,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    @subjects = Subject.all
   end
 
   # GET /subjects/new
@@ -69,6 +71,6 @@ class SubjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
-      params.require(:subject).permit(:title, :info, :theme_id, :photo)
+      params.require(:subject).permit(:title, :info, :theme_id)
     end
 end
